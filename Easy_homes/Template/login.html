@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+<!--        #bg{-->
+<!--            background-size: 100%;-->
+<!--            background-repeat: no-repeat;-->
+<!--&lt;!&ndash;            background-size: cover;&ndash;&gt;-->
+
+<!--        }-->
+<!--        .box{-->
+<!--            width: 320px;-->
+<!--            height: 350px;-->
+<!--            margin-left: 370px;-->
+<!--            margin-top: 110px;-->
+<!--            background-color: white;-->
+<!--            text-align: center;-->
+<!--            border: 2px;-->
+<!--            border-style: solid;-->
+<!--            border-color: violet;-->
+<!--            border-radius: 5%;-->
+
+        }
+        .form1{
+
+            height: 250px;
+            width: 340px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: inset -5px -5px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            align-items: center;
+            border-radius: 30px;
+            text-align: center;
+            padding-top: 10px;
+            position: absolute;
+            top: 180px;
+            left: 450px;
+<!--            margin-top: -500px;-->
+
+<!--            z-index: +4;-->
+<!--            margin: auto;-->
+
+
+
+        }
+        .form1 input{
+            width: 250px;
+            height: 28px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 30px;
+            color: white;
+        }
+        .form1 h1{
+            color: white;
+        }
+        .img1{
+            width: 1350px;
+            height: 610px;
+            position: absolute;
+            z-index: -1;
+            margin-top: -7px;
+        }
+<!--        .imgbox{-->
+
+<!--                height: 350px;-->
+<!--                margin-left: 685px;-->
+<!--                margin-top: -354px;-->
+<!--        }-->
+    </style>
+</head>
+<body id="bg" style="background-image:url('{% static 'image/sitou.jpg' %}');">
+    <img src="{% static 'image/decor.jfif' %}" class="img1">
+    <div class="box"><br>
+<!--style="background-color: #abc09f"-->
+        <form action="log" method="post" class="form1">
+            <h1>Login</h1>
+            {% csrf_token %}
+
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <input type="text" name="password" placeholder="Password"><br><br><br>
+            <input type="submit" value="login" placeholder="login" style="background-color: white; COLOR: black; width: 150px; height: 28px; border-radius: 5%; border: none;"><br><br>
+            <a href="reg" style="text-decoration: none; color: white;"> Don't have an account? Register</a>
+        </form><br><br>
+
+    </div>
+
+<!--    <div class="imgbox">-->
+<!--        <img src="{% static 'image/img3.jpg' %}" style="width: 280px; height: 354px; ">-->
+<!--    </div>-->
+</body>
+</html>

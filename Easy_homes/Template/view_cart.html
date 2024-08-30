@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        .empty{
+            width: 1343px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+        .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+        }
+         .price{
+            width: 400px;
+            height: 400px;
+            background-color: #ddf2d1;
+            position: absolute;
+            left: 880px;
+            top: 250px;
+<!--            margin-top: -280px;-->
+<!--            margin-left: 890px;-->
+
+
+
+         }
+         .box1{
+            float: left;
+            margin-left: 50px;
+
+         }
+         .imgbox{
+<!--                ede2f0 -->
+         }
+
+     </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1343px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;"></a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">CART</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="empty">
+        <p>Home / Products/ Wishlist</p>
+</div><br>
+
+    {% for i in cart_items %}
+        <div class="productbox">
+            <img src="{{ i.product_id.image.url }}" style="width: 180px; height: 170px;">
+
+        {{ i.product_id.product_name }}<br>
+        {{ i.product_id.description }}<br>
+        ${{ i.product_id.price }}<br>
+
+            <a href="{% url 'removecartitem' id=i.id %}"><button>Remove</button></a>
+
+        </div><br>
+
+    {% endfor %}<br>
+
+<!--        <a href="{% url 'order' %}"><button>Place Order</button></a>-->
+
+<div class="price"><br>
+    <h5 style="margin-left: 40px;">PRICE DETAILS</h5><hr style="width: 200px; margin-left: 40px;">
+    <div class="box1"><br>
+        <h6>Price</h6><br>
+        <h6>Discount</h6><br>
+        <h6>Delivery Charges</h6><br>
+        <h5>Total Amount</h5>
+    </div>
+    <div class="box2"><br>
+        ddjd
+    </div>
+
+    <a href="paying"><button style="margin-top: 180px; background-color: #654321; color: white;">Order Now</button></a>
+</div>
+
+<!--<a href="paying"><button>Order Now</button></a>-->
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

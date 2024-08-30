@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .imgbox{
+
+                height: 470px;
+                margin-left: 222px;
+                margin-top: -504px;
+        }
+        .box{
+            width: 330px;
+            height: 500px;
+            margin-left: 720px;
+            margin-top: 70px;
+            background-color: white;
+            text-align: center;
+            border: 2px;
+            border-style: solid;
+            border-color: pink;
+            background-color: #bfd4db;
+<!--            background-color: #efcfe3;-->
+
+        }
+        .form1 input{
+            width: 250px;
+            border-color: white;
+            background: transparent;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><br>
+    <h1 style="color: white;">Register</h1>
+
+    <form action="archReg" method="post" class="form1">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="First Name"><br><br>
+        <input type="email" name="email" placeholder="Email"><br><br>
+        <input type="text" name="education" placeholder="Education"><br><br>
+        <input type="text" name="phone_number" placeholder="Phone number"><br><br>
+        <input type="text" name="age" placeholder="Age"><br><br>
+        <input type="text" name="address" placeholder="Address"><br><br>
+        <input type="text" name="dob" placeholder="DOB"><br><br>
+        <input type="text" name="gender" placeholder="Gender"><br><br>
+        <input type="text" name="username" placeholder="User name"><br><br>
+        <input type="text" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Register" style="width: 100px; color: white;">
+    </form>
+    </div>
+<div class="imgbox">
+        <img src="{% static 'image/living.jfif' %}" style="width: 500px; height: 504px; ">
+    </div>
+</body>
+</html>

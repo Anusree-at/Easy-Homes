@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        #bg{
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+         .img1{
+            height: 270px;
+            width: 1356px;;
+            z-index: -1;
+         }
+         .box1{
+            width: 250px;
+            height: 150px;
+            background-color: #ddf2d1;
+            float: left;
+            border: 1px solid pink;
+            text-align: center;
+            margin-left: 68px;
+         }
+    </style>
+</head>
+
+<body id="bg" style="background-image:url('{% static 'image/img.png' %}');">
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1356px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addproduct" style="color: white; font-size: large;">ADD PRODUCT</a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="myproducts" style="color: white;">MY PRODUCTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" style="color: white;">Logout</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <img src="{% static 'image/pinksell2.jpg' %}" class="img1"><br>
+    <h1 style="margin-top: -200px; margin-left: 30px;">Sell Online</h1>
+
+<div style="margin-top: 200px; width: 1280px;" >
+        <div class="box1"><br>
+            20 crore+ Customers
+        </div>
+         <div class="box1"><br>
+            Low cost of doing buisenss
+        </div>
+         <div class="box1"><br>
+            24*7 Seller Support
+        </div>
+         <div class="box1"><br>
+            Secure & Regular Payment
+        </div>
+
+
+    </div>
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

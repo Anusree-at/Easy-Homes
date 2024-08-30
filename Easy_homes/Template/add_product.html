@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        .empty{
+            width: 1358px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+        .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+        }
+        .formbox{
+            width: 500px;
+            height: 350px;
+            background-color: #E8E9EB;
+            margin-left: 30%;
+            margin-top: 30px;
+            padding-top: 3%;
+            padding-left: 3%;
+         }
+         .form1{
+            width: 550px;
+         }
+         .form1 input{
+            width: 200px;
+         }
+     </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1358px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;">PRODUCTS</a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">LOGOUT</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="empty">
+        <p>home / Become Seller/ Add Product</p>
+</div>
+<div class="formbox">
+<form action="addproduct" method="post" class="form1" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="product_name" placeholder="Product Name">
+    <input type="text" name="description" placeholder="Description"><br><br>
+    <input type="text" name="price" placeholder="Price">
+
+    <input type="file" name="image" width="100"><br>
+    <input type="submit" value="ADD PRODUCT" style="width: 500px; background-color: #7f7053; border: none; height: 50px; margin-left: -40px; margin-top: 175px; color: white;">
+
+    <label for="category"></label>
+    <select name="category" id="categories" style=" position: absolute; top: 400px; left: 650px; width: 200px;">
+        {% for i in datas %}
+        <option value="{{ i.id }}" >{{ i.category_name }}</option>
+<!--        <option value="{{ i.category_name }}" >{{ i.category_name }}</option>-->
+<!--        <option value="{{ i.category_name }}" >{{ i.category_name }}</option>-->
+        {% endfor %}
+    </select>
+
+</form>
+<!--
+</div>
+
+
+
+{% for i in datas %}
+    {{ i.category_name }}
+{% endfor %}
+
+
+
+
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

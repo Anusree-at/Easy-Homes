@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        #bg{
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body id="bg" style="background-image:url('{% static 'image/img.png' %}');">
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1355px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sellers" style="color: white; font-size: large;">VIEW SELLERS</a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--modal-->
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+ <div class="button-group">
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add" style="margin-left: 1060px; margin-top: -110px; background-color: #abc09f; border: none; width: 150px;">ADD CATEGORY</button>
+
+     {% if add %}
+            {{ add }}
+        {% endif %}
+ </div>
+      </div>
+    </div>
+ </div>
+
+ <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="withdrawModalLabel">ADD</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="category" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Category Name</label>
+              <input type="text" name="category_name" class="form-control"><br>
+              <input type="submit" value="save" style="background-color: #7f7053; color: white; width: 100px;">
+               </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

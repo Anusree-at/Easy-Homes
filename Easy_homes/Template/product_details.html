@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .empty{
+            width: 1358px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+        .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+        }
+        .details tr{
+
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1358px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;"></a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">WISHLIST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">CART</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="empty">
+        <p>home / Products / Details</p>
+</div><br>
+
+        <img src="{{ details.image.url }}" style="width: 450px; height: 370px; margin-left: 30px; float: left; margin-right: 2%;"><br>
+        <div>
+            <h4>{{ details.product_name }}</h4>
+            <p style="color: green;">Special Price</p>
+            <h5>${{ details.price }}</h5>
+
+            <h6>{{ details.description }}</h6>
+
+            <h5>{{ details.color }}</h5><br>
+            <h4>Product Details</h4><hr style="width: 250px; background-color: black; margin-left: 510px;">
+
+            <table class="details">
+                <tr>
+                    <th>Name: {{ details.product_name }}</th>
+                </tr>
+                <tr>
+                    <th>Color:  {{ details.color }}</th>
+                </tr>
+                <tr>
+                    <th>Material: {{ details.material }}</th>
+                </tr>
+
+
+            </table>
+            </div><br>
+        <a href="{% url 'addtocart' id=details.id %}"><button style="color: white; background-color: #995a2f; width: 170px; height: 40px;">Add to cart</button></a>
+
+
+
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

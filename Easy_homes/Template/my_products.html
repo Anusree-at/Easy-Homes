@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        .empty{
+            width: 1358px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+         .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+        }
+          .productbox{
+            width: 220px;
+            height: 362px;
+            text-align: center;
+            float: left;
+        }
+
+     </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1358px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;">PRODUCTS</a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="empty">
+        <p>Home / Become Seller/ My Products</p>
+</div><br>
+
+    {% for i in myproduct %}
+        <div class="productbox">
+        <img src="{{ i.image.url }}" style="width: 200px; height: 270px;"><br>
+
+        {{ i.product_name }}<br>
+        {{ i.description }}<br>
+        ${{ i.price }}
+        <a href="{% url 'editproduct' id=i.id %}"><button>Edit</button></a>
+        <a href="{% url 'dltproduct' id=i.id %}"><button>Delete</button></a>
+        </div>
+    {% endfor %}
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

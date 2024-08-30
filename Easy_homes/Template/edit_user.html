@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .empty{
+            width: 1343px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+        .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+
+        }
+        .text{
+            width: 750px;
+            height: 550px;
+            background: #ddf2d1;
+            margin-left: 430px;
+            text-align: left;
+            border: 1px solid pink;
+            padding-left: 90px;
+        }
+        .form1 input{
+            width: 550px;
+            height: 40px;
+            padding-left: 30px;
+            background: transparent;
+            border: 1px solid #d0d0cf;
+
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1343px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;">PRODUCTS</a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">WISHLIST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;">CART</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="empty">
+        <p>Home / Profile / Edit</p>
+</div><br>
+
+<div class="text"><br>
+    <h5 style="margin-left: 10px;">Edit Details</h5><hr style="width: 300px; margin-left: 10px;"><br>
+<form action="edituser" method="post" enctype="multipart/form-data" class="form1">
+        {% csrf_token %}
+
+        <input type="text" name="name" value="{{data.name }}"><br><br>
+        <input type="text" name="email" value="{{data.email }}"><br><br>
+        <input type="text" name="address" value="{{data.address }}"><br><br>
+        <input type="text" name="age" value="{{data.age }}"><br><br>
+        <input type="text" name="dob" value="{{data.dob }}"><br><br>
+        <input type="text" name="gender" value="{{data.gender }}"><br><br>
+        <input type="submit" value="Edit" style="position: absolute; left: 600px; top: 720px; width: 400px; background-color: #654321; height: 45px; border: none; color: white;">
+</form>
+
+</div>
+
+</body>
+</html>

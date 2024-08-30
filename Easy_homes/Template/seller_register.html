@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+         #bg{
+            background-size: 100%;
+            background-repeat: no-repeat;
+<!--            background-size: cover;-->
+
+        }
+         .box{
+            height: 500px;
+            width: 300px;
+            margin: auto;
+<!--            background: transparent;-->
+
+         }
+         .form1{
+            margin-top: 110px;
+            height: 420px;
+            width: 340px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: inset -5px -5px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            align-items: center;
+            border-radius: 30px;
+
+         }
+         .form1 input{
+            height: 23px;
+            width: 250px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
+            color: white;
+
+
+
+
+         }
+         .box h4{
+            text-align: center;
+            color: white;
+
+         }
+
+
+    </style>
+</head>
+<body id="bg" style="background-image:url('{% static 'image/covers.jpg' %}')">
+
+    <div class="box">
+
+    <form action="sellerreg" method="post" class="form1">
+        <h4>Seller Register</h4>
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Name" style="color: white;"><br><br>
+      <input type="text" name="address" placeholder="Address"><br><br>
+      <input type="text" name="email" placeholder="Email"><br><br>
+      <input type="text" name="phone_number" placeholder="Phone Number"><br><br>
+      <input type="text" name="username" placeholder="Username"><br><br>
+      <input type="text" name="password" placeholder="Password"><br><br>
+      <input type="submit" value="Register" style="height: 40px; border-radius: 30px;">
+    </form>
+
+    </div>
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

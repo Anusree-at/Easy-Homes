@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+     {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        .empty{
+            width: 1358px;
+            height: 125px;
+            background-color: #E8E9EB;
+        }
+        .empty p{
+            padding-top: 50px;
+            padding-left: 30px;
+        }
+         .paying{
+            width: 400px;
+            height: 350px;
+            background-color: #ddf2d1;
+            margin: auto;
+            text-align: center;
+         }
+     </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="width: 1358px; background-color: #abc09f; height: 80px;">
+   <div class="container">
+    <a class="navbar-brand" href="" style="color: white;">HOME</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white; font-size: large;"></a>
+        </li>
+        <!-- Add more menu items as needed -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" style="color: white;"></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="empty">
+        <p>Home / Payment</p>
+</div><br>
+
+<!--   <div class="box1">-->
+       <div class="paying"><br>
+           <h3>Payment Methods</h3><br>
+
+<!--       </div>-->
+<!--       <div class="amountBox">-->
+<!--           <h3>Amount</h3>-->
+<!--       </div>-->
+        <form action="{% url 'order' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="payment_status">
+            <input name="payment_status" type="submit" value="cod" style="background-color: white; color: black; width: 95px; height: 37px; border-radius: 5px; float: left; border: none; margin-left: 70px; margin-top: 23px;">
+
+
+        </form><br>
+
+<!--   </div>-->
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+ <div class="button-group">
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withdrawModal">Card</button>
+ </div>
+      </div>
+    </div>
+ </div>
+
+ <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="withdrawModalLabel">Card</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="order" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Account number :</label>
+              <input type="text" name="acc_number" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Name :</label>
+              <input type="text" name="acc_holder" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Bank Name :</label>
+              <input type="text" name="bank_name" class="form-control">
+
+            </div>
+
+            <div class="form-group">
+              <label></label>
+              <input type="hidden" name="payment_status" class="form-control">
+              <input name="payment_status" type="submit" value="paid">
+
+            </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+
+<a href="{% url 'order' %}"><button>Place Order</button></a>
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

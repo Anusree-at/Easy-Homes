@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .thanku{
+
+            color: teal;
+<!--            margin-left: 200px;-->
+<!--            margin-top: 200px;-->
+
+        }
+
+        .tick{
+            width: 180px;
+            height: 170px;
+            margin-left: 150px;
+        }
+        .box{
+            margin-left: 420px;
+            margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <img src="{% static 'image/tick.jfif' %}" class="tick"><br><br>
+    <h1 class="thanku">Thank You For Your Order!</h1>
+    </div>
+
+
+
+
+
+
+<!-- Bootstrap JS and jQuery (optional, if you want to use Bootstrap's JavaScript components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
